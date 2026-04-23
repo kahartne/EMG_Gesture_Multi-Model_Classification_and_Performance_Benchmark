@@ -1,0 +1,3 @@
+Scalar time: 0.285015s
+SIMD time: 0.003422s
+Speedup: 83.30x

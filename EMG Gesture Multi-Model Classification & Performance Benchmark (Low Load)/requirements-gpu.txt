@@ -1,0 +1,7 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+onnx==1.14.1
+onnxruntime-gpu==1.16.3
+skl2onnx
