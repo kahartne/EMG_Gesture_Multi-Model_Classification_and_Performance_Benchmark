@@ -57,7 +57,7 @@ This pipeline evaluates:
 
 ### Quick Start
 
-Make sure you have data	est.csv
+Make sure you have data/test.csv
 - To make data folder: mkdir data
 - Then put test.csv in data folder (this is what the trained model runs on for benchmarking)
 - Make sure test.csv only has columns: mav, rms, zc
@@ -76,48 +76,47 @@ python emg_gesture_prediction_generator.py ^
 ---
 
 ## Files (After Complete Run)
-├── data/
-│   └── test.csv                      # Inference dataset (features only)
-├── models/                           # Generated artifacts
-│   ├── logistic_regression.onnx      # FP32 logistic model
-│   ├── logistic_regression_int8.onnx # INT8 logistic model
-│   ├── mlp.onnx                      # FP32 MLP model
-│   ├── mlp_int8.onnx                 # INT8 MLP model
-│   ├── logistic_weights.txt          # Logistic weights (for C integration)
-│   ├── logistic_bias.txt             # Logistic bias (for C integration)
-│   ├── mlp_W0.txt, mlp_b0.txt, ...   # MLP layer weights (for C integration)
-│   ├── features.txt                  # Feature order
-│   ├── README.md                     # Project documentation
-│   └── gesture_ml_models_onnx.zip    # ZIP of all trained models
-├── results/                          # Performance results
-│   ├── benchmark_results.csv
-│   ├── classification_report_comparison.png
-│   ├── logistic_confusion_matrix.png
-│   ├── mlp_confusion_matrix.png
-│   ├── time_comparison.png
-│   ├── speedup.png
-│   ├── throughput.png
-│   ├── transfer_time.png
-│   ├── load_vs_inference.png
-│   ├── logistic_time.png
-│   ├── predictions.png
-│   ├── mlp_time.png
-│   ├── fp32_model_comparison.png
-│   └── int8_model_comparison.png
+--data/
+---test.csv                      # Inference dataset (features only)
+--models/                           # Generated artifacts
+---logistic_regression.onnx      # FP32 logistic model
+---logistic_regression_int8.onnx # INT8 logistic model
+---mlp.onnx                      # FP32 MLP model
+---mlp_int8.onnx                 # INT8 MLP model
+---logistic_weights.txt          # Logistic weights (for C integration)
+---logistic_bias.txt             # Logistic bias (for C integration)
+---mlp_W0.txt, mlp_b0.txt, ...   # MLP layer weights (for C integration)
+---features.txt                  # Feature order
+---README.md                     # Project documentation
+---gesture_ml_models_onnx.zip    # ZIP of all trained models
+--results/                          # Performance results
+---benchmark_results.csv
+---classification_report_comparison.png
+---logistic_confusion_matrix.png
+---mlp_confusion_matrix.png
+---time_comparison.png
+---speedup.png
+---throughput.png
+---transfer_time.png
+---load_vs_inference.png
+---logistic_time.png
+---predictions.png
+---mlp_time.png
+---fp32_model_comparison.png
+---int8_model_comparison.png
 │
-├── emg_gesture_ml_predictor.py                 # Train logistic regression + export weights
-├── emg_gesture_build_onnx_from_weights.py      # Build ONNX model manually (MatMul + Add + ArgMax)
-├── emg_gesture_build_onnx_mlp.py               # Build MLP ONNX model
-├── emg_gesture_prediction_generator.py         # Run inference + output predictions
-├── emg_gesture_prediction_quantization.py      # Apply INT8 quantization
-├── emg_gesture_prediction_benchmark.py         # Benchmark CPU/GPU + FP32/INT8
-├── emg_gesture_prediction_benchmark_results.py # Generate plots from results
-├── emg_gesture_prediction_nvprof_results.py    # GPU kernel profiling analysis
-├── emg_gesture_prediction_simd.py              # SIMD vs scalar experiment
-├── emg_gesture_ml_pipeline_run_all.py          # Run full pipeline (one command)
+--emg_gesture_ml_predictor.py                 # Train logistic regression + export weights
+--emg_gesture_build_onnx_from_weights.py      # Build ONNX model manually (MatMul + Add + ArgMax)
+--emg_gesture_build_onnx_mlp.py               # Build MLP ONNX model
+--emg_gesture_prediction_generator.py         # Run inference + output predictions
+--emg_gesture_prediction_quantization.py      # Apply INT8 quantization
+--emg_gesture_prediction_benchmark.py         # Benchmark CPU/GPU + FP32/INT8
+--emg_gesture_prediction_benchmark_results.py # Generate plots from results
+--emg_gesture_prediction_nvprof_results.py    # GPU kernel profiling analysis
+--emg_gesture_prediction_simd.py              # SIMD vs scalar experiment
+--emg_gesture_ml_pipeline_run_all.py          # Run full pipeline (one command)
 │
-├── features.csv                    # Training dataset (features + label)
-└──
+--features.csv                    # Training dataset (features + label)
 ---
 
 ## Metrics Collected
